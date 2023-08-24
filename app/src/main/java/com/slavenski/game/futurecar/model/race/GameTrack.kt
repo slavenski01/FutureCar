@@ -1,4 +1,4 @@
-package com.slavenski.game.futurecar.ui.model.race
+package com.slavenski.game.futurecar.model.race
 
 class GameTrack: Track() {
 

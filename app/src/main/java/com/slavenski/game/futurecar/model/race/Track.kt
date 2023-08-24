@@ -1,6 +1,6 @@
-package com.slavenski.game.futurecar.ui.model.race
+package com.slavenski.game.futurecar.model.race
 
-import com.slavenski.game.futurecar.ui.model.block.Block
+import com.slavenski.game.futurecar.model.block.Block
 
 abstract class Track {
     abstract var startPolygon: Polygon
