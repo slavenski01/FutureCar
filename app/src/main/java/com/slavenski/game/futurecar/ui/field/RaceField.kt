@@ -18,6 +18,7 @@ import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.slavenski.game.futurecar.ui.car.drawPlayerCar
 
 @Composable
 fun FieldDraw(
@@ -35,7 +36,12 @@ fun FieldDraw(
                 detectDragGestures(
                     onDragStart = {
                         val newPath = carPointsPath.toMutableList()
-                        newPath.add(it)
+                        newPath.add(
+                            Offset(
+                                x = it.x,
+                                y = this.size.height - 80.dp.toPx()
+                            )
+                        )
                         carPointsPath = newPath.toList()
                     },
                     onDrag = { change, _ ->
@@ -51,11 +57,23 @@ fun FieldDraw(
                 )
             }
     ) {
+        drawPlayerCar(100f, this.size.height - 100.dp.toPx())
         drawPoints(
             points = carPointsPath,
             strokeWidth = 1.dp.toPx(),
             pointMode = PointMode.Lines,
             color = Color.Black
+        )
+        drawLine(
+            color = Color.Black,
+            start = Offset(
+                x = 0.dp.toPx(),
+                y = this.size.height - 80.dp.toPx()
+            ),
+            end = Offset(
+                x = this.size.width,
+                y = this.size.height - 80.dp.toPx()
+            )
         )
     }
 }
