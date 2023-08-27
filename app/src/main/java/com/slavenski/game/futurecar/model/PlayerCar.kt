@@ -1,4 +1,4 @@
-package com.slavenski.game.futurecar.ui.model
+package com.slavenski.game.futurecar.model
 
 data class PlayerCar(
     val name: String,

@@ -3,13 +3,16 @@ package com.slavenski.game.futurecar
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.slavenski.game.futurecar.ui.field.FieldDraw
 import com.slavenski.game.futurecar.ui.theme.FutureCarTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,29 +21,27 @@ class MainActivity : ComponentActivity() {
         setContent {
             FutureCarTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
+                Box(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    FieldDraw()
                 }
             }
         }
     }
 }
 
+@Preview
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
+fun TestMain() {
     FutureCarTheme {
-        Greeting("Android")
+        // A surface container using the 'background' color from the theme
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White),
+        ) {
+            FieldDraw(modifier = Modifier.size(100.dp))
+        }
     }
 }
